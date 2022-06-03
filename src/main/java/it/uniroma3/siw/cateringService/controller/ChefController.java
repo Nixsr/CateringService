@@ -30,7 +30,7 @@ public class ChefController {
 	// Metodo POST per inserire un nuovo chef
 	
 	@PostMapping("/chef")
-	public String addBuffet(@Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResult, Model model) {
+	public String addChef(@Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResult, Model model) {
 		validator.validate(chef, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			chefService.save(chef);

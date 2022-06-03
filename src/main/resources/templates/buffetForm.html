@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Inserimento buffet</title>
+</head>
+<body>
+<form th:action = "@{/buffet}" method="post" th:object="${buffet}">
+	<div th:if="${#fields.hasGlobalErrors()}">
+    <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Errore Globale</p> 
+  </div>	
+	<div>nome:<input type="text" th:field="*{nome}"/>
+	<div th:if = "${#fields.hasErrors('nome')}" th:errors = "*{nome}"></div>
+	</div>
+	<div>descrizione: <input type="text" th:field ="*{descrizione}"/>
+		<div th:if = "${#fields.hasErrors('descrizione')}" th:errors = "*{descrizione}"></div>
+	</div>
+	<div><button type="submit">Conferma</div>
+</form>
+</body>
+</html>

@@ -20,8 +20,6 @@ public class Piatto {
 	
 	private String descrizione;
 	
-	//private List<Ingrediente> ingredienti;
-	
 	@OneToMany
 	@JoinColumn(name = "piatto")
 	private List<Ingrediente> ingrdienti;
@@ -48,14 +46,6 @@ public class Piatto {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
-	}
-
-	public List<Ingrediente> getIngredienti() {
-		return ingredienti;
-	}
-
-	public void setIngredienti(List<Ingrediente> ingredienti) {
-		this.ingredienti = ingredienti;
 	}
 
 	public List<Ingrediente> getIngrdienti() {

@@ -1,0 +1,23 @@
+@charset "ISO-8859-1";
+body {
+  background-image: url("https://www.consultaeventidmc.it/wp-content/uploads/2020/06/servizio-catering-per-eventi-2-1920x900.jpg");
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 150px;
+  margin: 100px;
+  text-align: center;
+  line-height: 55px;
+  font-size: 23px;
+}
+
+img {
+  border-radius: 100%;
+   width: 150%;
+}

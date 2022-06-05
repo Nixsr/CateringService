@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Elenco dei piatti</title>
+</head>
+<body>
+	<div>
+		<h4>Elenco dei Piatti:</h4>
+		<ul>
+			<li th:each="piatto : ${piatti}">
+			<span th:text="${piatto.nome} + ' - ' + ${piatto.descrizione}" >Pasta all'arrabbiata - Pennette al sugo con peperoncino e prezzemolo'</span>
+				<a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}">Dettagli</a>
+				<a href="toDeletePiatto.html" th:href="@{'/toDeletePiatto' + '/' + ${piatto.id}}">Cancella</a></li>
+			</ul>
+			
+	</div>
+	<footer>
+	<a href="/">Home</a>
+	</footer>
+</body>
+</html>

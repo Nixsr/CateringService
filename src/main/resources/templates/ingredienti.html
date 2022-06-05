@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Elenco Ingredienti</title>
+</head>
+<body>
+	<div>
+		<h4>Elenco ingredienti:</h4>
+		<ul>
+			<li th:each="ingrediente : ${ingredienti}">
+			<span th:text="${ingrediente.nome} + ' - ' + ${ingrediente.origine} + ' - ' + ${ingrediente.descrizione}" >Salsa di Pomodoro - Italia - Salsa di pomodoro per condire i primi</span>
+				<a href="ingrediente.html" th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}">Dettagli</a>
+				<a href="toDeleteIngrediente.html" th:href="@{'/toDeleteIngrediente' + '/' + ${ingrediente.id}}">Cancella</a></li>
+			</ul>
+			
+	</div>
+	<footer>
+	<a href="/">Home</a>
+	</footer>
+</body>
+</html>

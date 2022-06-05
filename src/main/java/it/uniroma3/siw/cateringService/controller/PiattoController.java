@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +14,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siw.cateringService.controller.validator.PiattoValidator;
-import it.uniroma3.siw.cateringService.model.Ingrediente;
 import it.uniroma3.siw.cateringService.model.Piatto;
 import it.uniroma3.siw.cateringService.service.PiattoService;
 
+
+@Controller
 public class PiattoController {
 	@Autowired
 	private PiattoService piattoService;
@@ -34,7 +36,7 @@ public class PiattoController {
 			model.addAttribute("piatto", piatto);
 			return "piatto.html";
 		}
-		return "ingredienteForm.html";
+		return "piattoForm.html";
 	}
 	
 	//Metodo GET per richiedere tutti i piatti
@@ -76,7 +78,7 @@ public class PiattoController {
 	
 	@GetMapping("/piattoForm")
 	public String getPiatto(Model model) {
-		model.addAttribute("piatto", new Ingrediente());
+		model.addAttribute("piatto", new Piatto	());
 		return "piattoForm.html";
 	}
 }

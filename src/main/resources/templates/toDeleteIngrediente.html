@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Conferma Cancellazione</title>
+</head>
+<body>
+	<h4>Ingrediente da cancellare:</h4>
+	<div>
+		<span th:text="${ingrediente.nome}">Salsa di Pomodoro</span>
+		<span th:text="${ingrediente.origine}">Italia</span>
+		<span th:text="${ingrediente.descrizione}">Salsa di Pomodoro per condire i primi</span>
+	</div>
+	<div><a href = "ingrediente.html" th:href="@{'/deleteIngrediente' + '/' +${ingrediente.id}}"
+				th:text = "CONFERMA">CONFERMA</a>
+	</div>
+</body>
+</html>

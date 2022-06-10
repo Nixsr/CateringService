@@ -9,7 +9,17 @@
 	<div th:if="${#fields.hasGlobalErrors()}">
     <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Errore Globale</p> 
   </div>	
-	<div>nome:<input type="text" th:field="*{nome}"/>
+  
+  <div>
+  	<label for="piatto">Seleziona un piatto</label>
+  	<select class="form-select" th:field="*{piatto}">
+  	<option value="true" disabled>Seleziona...</option>
+  	<option th:each="piatto : ${listaPiatti}" th:value="${piatto.id}" th:text="${piatto.nome}"></option>
+  	</select>
+  	<span th:if="${#fields.hasErrors('piatto.id')}" th:errors="*{piatto.id}"></span>
+  </div>
+  
+  <div>nome:<input type="text" th:field="*{nome}"/>
 	<div th:if = "${#fields.hasErrors('nome')}" th:errors = "*{nome}"></div>
 	</div>
 	<div>origine: <input type="text" th:field ="*{origine}"/>

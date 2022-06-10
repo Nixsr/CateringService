@@ -16,11 +16,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import it.uniroma3.siw.cateringService.controller.validator.IngredienteValidator;
 import it.uniroma3.siw.cateringService.model.Ingrediente;
 import it.uniroma3.siw.cateringService.service.IngredienteService;
+import it.uniroma3.siw.cateringService.service.PiattoService;
 
 @Controller
 public class IngredienteController {
+	
 	@Autowired
 	private IngredienteService ingredienteService;
+	
+	@Autowired
+	private PiattoService piattoService;
 	
 	@Autowired
 	private IngredienteValidator validator;
@@ -78,6 +83,7 @@ public class IngredienteController {
 	@GetMapping("/ingredienteForm")
 	public String getIngrediente(Model model) {
 		model.addAttribute("ingrediente", new Ingrediente());
+		model.addAttribute("listaPiatti", piattoService.findAll());
 		return "ingredienteForm.html";
 	}
 }

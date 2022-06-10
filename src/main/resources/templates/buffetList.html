@@ -9,7 +9,7 @@
 		<h4>Elenco buffet:</h4>
 		<ul>
 			<li th:each="buffet : ${buffetList}">
-			<span th:text="${buffet.nome} + '-' + ${buffet.descrizione}" >Buffet di dolci - Barbieri</span>
+			<span th:text="${buffet.chef.cognome} + ' - ' + ${buffet.nome}" >Barbieri - Buffet di dolci</span>
 				<a href="buffet.html" th:href="@{'/buffet' + '/' + ${buffet.id}}">Dettagli</a>
 				<a href="toDeleteBuffet.html" th:href="@{'/toDeleteBuffet' + '/' + ${buffet.id}}">Cancella</a></li>
 			</ul>

@@ -2,21 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="/css/form.css"/>
 	<title>Elenco Buffet</title>
 </head>
 <body>
-	<div>
-		<h4>Elenco buffet:</h4>
+	<div class="Data-Form">
+		<h2>Elenco buffet:</h2>
 		<ul>
 			<li th:each="buffet : ${buffetList}">
 			<span th:text="${buffet.chef.cognome} + ' - ' + ${buffet.nome}" >Barbieri - Buffet di dolci</span>
 				<a href="buffet.html" th:href="@{'/buffet' + '/' + ${buffet.id}}">Dettagli</a>
 				<a href="toDeleteBuffet.html" th:href="@{'/toDeleteBuffet' + '/' + ${buffet.id}}">Cancella</a></li>
 			</ul>
-			
-	</div>
-	<footer>
+			<footer>
 	<a href="/">Home</a>
 	</footer>
+	</div>
+	
 </body>
 </html>

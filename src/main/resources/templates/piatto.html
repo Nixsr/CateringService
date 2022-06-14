@@ -2,14 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="/css/form.css"/>
 	<title>Dettagli del piatto</title>
 </head>
 <body>
-	<div>
-	<h4>Dettagli del piatto</h4>
+	<div class="Data-Form">
+	<h2>Dettagli del piatto</h2>
 	<span th:text="${piatto.nome}">Pasta all'arrabbiata</span>
 	<span th:text="${piatto.descrizione}">Pennette con salsa di pomodoro, peperoncino e prezzemolo</span>
-	</div>
 <footer><a href="/">Home</a></footer>
+	</div>
 </body>
 </html>

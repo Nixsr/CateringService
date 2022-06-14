@@ -2,19 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="/css/form.css"/>
 	<title>Inserimento ingrediente</title>
 </head>
 <body>
+<div class="Data-Form">
 <form th:action = "@{/ingrediente}" method="post" th:object="${ingrediente}">
 	<div th:if="${#fields.hasGlobalErrors()}">
     <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Errore Globale</p> 
   </div>	
   
-  <div>
+	  <div>
   	<label for="piatto">Seleziona un piatto</label>
   	<select class="form-select" th:field="*{piatto}">
   	<option value="true" disabled>Seleziona...</option>
-  	<option th:each="piatto : ${listaPiatti}" th:value="${piatto.id}" th:text="${piatto.nome}"></option>
+  	<option th:each="piatto : ${listaPiatti}" th:value="${piatto.id}"></option>
   	</select>
   	<span th:if="${#fields.hasErrors('piatto.id')}" th:errors="*{piatto.id}"></span>
   </div>
@@ -30,5 +32,6 @@
 	</div>
 	<div><button type="submit">Conferma</div>
 </form>
+</div>
 </body>
 </html>

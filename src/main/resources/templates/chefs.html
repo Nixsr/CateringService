@@ -2,10 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="/css/form.css"/>
 	<title>Elenco degli Chef</title>
 </head>
 <body>
-	<div>
+	<div class="Data-Form">
 		<h4>Elenco degli Chef:</h4>
 		<ul>
 			<li th:each="chef: ${chefs}">
@@ -14,9 +15,10 @@
 				<a href="toDeleteChef.html" th:href="@{'/toDeleteChef' + '/' + ${chef.id}}">Cancella</a></li>
 			</ul>
 			
-	</div>
 	<footer>
 	<a href="/">Home</a>
 	</footer>
+	</div>
+	
 </body>
 </html>

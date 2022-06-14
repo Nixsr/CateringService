@@ -12,7 +12,7 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Piatto {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

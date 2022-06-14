@@ -2,10 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="/css/form.css"/>
 	<title>Conferma Cancellazione</title>
 </head>
 <body>
-	<h4>Chef da cancellare:</h4>
+<div class="Data-Form">
+	<h2>Chef da cancellare:</h2>
 	<div>
 		<span th:text="${chef.nome}">Bruno</span>
 		<span th:text="${chef.cognome}">Barbieri</span>
@@ -14,5 +16,6 @@
 	<div><a href = "chef.html" th:href="@{'/deleteChef' + '/' +${chef.id}}"
 				th:text = "CONFERMA">CONFERMA</a>
 	</div>
+</div>
 </body>
 </html>

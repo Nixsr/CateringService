@@ -2,13 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="/css/form.css"/>
 	<title>Inserimento chef</title>
 </head>
 <body>
 <form th:action = "@{/chef}" method="post" th:object="${chef}">
 	<div th:if="${#fields.hasGlobalErrors()}">
     <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Errore Globale</p> 
-  </div>	
+  </div>
+  <div class="Data-Form">	
+  <h2>Inserimento chef</h2>	
 	<div>nome:<input type="text" th:field="*{nome}"/>
 	<div th:if = "${#fields.hasErrors('nome')}" th:errors = "*{nome}"></div>
 	</div>
@@ -19,6 +22,7 @@
 		<div th:if = "${#fields.hasErrors('nazionalita')}" th:errors = "*{nazionalita}"></div>
 	</div>
 	<div><button type="submit">Conferma</div>
+  </div>
 </form>
 </body>
 </html>

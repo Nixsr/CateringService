@@ -2,9 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="/css/form.css"/>
 	<title>Inserimento del piatto</title>
 </head>
 <body>
+<div class="Data-Form">
+<h2>Inserimento del piatto</h2>
 <form th:action = "@{/piatto}" method="post" th:object="${piatto}">
 	<div th:if="${#fields.hasGlobalErrors()}">
     <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Errore Globale</p> 
@@ -17,5 +20,6 @@
 	</div>
 	<div><button type="submit">Conferma</div>
 </form>
+</div>
 </body>
 </html>

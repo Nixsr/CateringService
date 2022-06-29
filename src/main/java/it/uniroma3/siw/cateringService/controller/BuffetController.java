@@ -1,5 +1,6 @@
 package it.uniroma3.siw.cateringService.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -12,11 +13,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import it.uniroma3.siw.cateringService.controller.validator.BuffetValidator;
 import it.uniroma3.siw.cateringService.model.Buffet;
+import it.uniroma3.siw.cateringService.model.Chef;
+import it.uniroma3.siw.cateringService.model.Piatto;
 import it.uniroma3.siw.cateringService.service.BuffetService;
 import it.uniroma3.siw.cateringService.service.ChefService;
+import it.uniroma3.siw.cateringService.service.PiattoService;
 
 @Controller
 public class BuffetController {
@@ -30,6 +36,9 @@ public class BuffetController {
 	@Autowired
 	private BuffetValidator validator;
 	
+	@Autowired
+	private PiattoService piattoService;
+	
 	@PostMapping("/buffet")
 	public String addBuffet(@Valid @ModelAttribute("buffet") Buffet buffet, BindingResult bindingResult, Model model) {
 		validator.validate(buffet, bindingResult);
@@ -38,7 +47,7 @@ public class BuffetController {
 			model.addAttribute("buffet", buffet);
 			return "buffet.html";
 		}
-		return "buffetForm.html";
+		return "admin/buffetForm.html";
 	}
 	
 	@GetMapping("/buffet")
@@ -72,7 +81,7 @@ public class BuffetController {
 	public String getBuffet(Model model) {
 		model.addAttribute("buffet", new Buffet());
 		model.addAttribute("listaChef", chefService.findAll());
-		return "buffetForm.html";
+		return "admin/buffetForm.html";
 	}
 	
 }

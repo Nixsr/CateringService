@@ -46,4 +46,13 @@ public class BuffetService {
 	public void deleteById(Long id) {
 		buffetRepository.deleteById(id);
 	}
+	
+	public Buffet searchById(Long id) {
+		return this.buffetRepository.findById(id).get();
+	}
+	
+	@Transactional
+	public Buffet inserisci(Buffet buffet) {
+		return this.buffetRepository.save(buffet);
+	}
 }

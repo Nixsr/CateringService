@@ -3,6 +3,7 @@ package it.uniroma3.siw.cateringService.controller.validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import it.uniroma3.siw.cateringService.model.Buffet;
@@ -26,5 +27,13 @@ public class BuffetValidator implements Validator {
 		}
 		
 	}
+	
+	public void validateUpdate(Object o, Errors errors) {
+
+		//Verifico la presenza di spazi o di stringa vuota
+
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nome", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "descrizione", "required");
+    }
 
 }

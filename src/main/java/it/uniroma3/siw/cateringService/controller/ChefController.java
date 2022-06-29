@@ -37,7 +37,7 @@ public class ChefController {
 			model.addAttribute("chef", chef);
 			return "chef.html";
 		}
-		return "chefForm.html";
+		return "admin/chefForm.html";
 	}
 	
 	//Metodo GET per richiedere tutti gli chefs
@@ -80,7 +80,7 @@ public class ChefController {
 	@GetMapping("/chefForm")
 	public String getChef(Model model) {
 		model.addAttribute("chef", new Chef());
-		return "chefForm.html";
+		return "admin/chefForm.html";
 	}
 	
 }

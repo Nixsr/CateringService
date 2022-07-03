@@ -8,6 +8,29 @@
 <body>
 	<div class="Data-Form">
 		<h2>Elenco ingredienti:</h2>
+		
+		<!-- DEFAULT -->
+			<div sec:authorize="hasAuthority('DEFAULT')">
+		<ul>
+			<li th:each="ingrediente : ${ingredienti}">
+			<div class="flex-container">
+			<strong>Nome: </strong><span th:text="${ingrediente.nome}" >Salsa di Pomodoro</span>
+			<p>
+			<strong>Origine: </strong><span th:text="${ingrediente.origine}">Italia</span>
+			<p>
+			<strong>Descrizione: </strong><span th:text="${ingrediente.descrizione}">Salsa di pomodoro per condire i primi</span>
+			 
+			
+			</div>
+				<a href="ingrediente.html" th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}">Dettagli</a>
+			</ul>
+		<footer>
+	<a href="/">Home</a>
+	</footer>
+			</div>
+	
+	<!-- ADMIN -->
+			<div sec:authorize="hasAuthority('ADMIN')">
 		<ul>
 			<li th:each="ingrediente : ${ingredienti}">
 			<div class="flex-container">
@@ -25,6 +48,7 @@
 		<footer>
 	<a href="/">Home</a>
 	</footer>
+			</div>
 	</div>
 </body>
 </html>

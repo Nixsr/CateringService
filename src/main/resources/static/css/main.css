@@ -55,4 +55,14 @@ li a:hover:not(.active) {
 .active {
   background-color: #04AA6D;
 }
+
+.AdminOperation{
+	background-color: #f1f1f1;
+  margin: auto;
+  border: 3px solid black;
+  padding: 10px;
+}
+
+.AdminOperationTitle{
+	text-align: center;
 }

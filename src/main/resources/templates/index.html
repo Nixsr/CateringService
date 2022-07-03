@@ -38,33 +38,35 @@
 
 <!-- ADMIN -->
 <div sec:authorize="hasAuthority('ADMIN')">
+<div class="AdminOperation">
+	<span class="AdminOperationTitle"><h1>Operazioni di amministrazione</h1></span>
     <div class="flex-container">
     <div>
     </div>
 	<div>
-      <img src="../images/buffet.jpg" alt="Buffet">
+      
 		<a th:href="@{/buffetForm}">Inserisci Buffet</a>
-		<a th:href="@{/buffet}">Visualizza Buffet</a>
+		
 	</div>
 	<div>
-      <img src="../images/Chef.jpeg" alt="Chef">
+      
 		<a th:href="@{/chefForm}">Inserisci Chef</a>
-		<a th:href="@{/chef}">Visualizza Chefs</a>
+		
 	</div>
 	<div>
-       <img src="../images/Piatto.jpg" alt="Piatto">
+       
 		<a th:href="@{/piattoForm}">Inserisci Piatto</a>
 	
-		<a th:href="@{/piatto}">Visualizza Piatti</a>
+		
 	</div>
 	<div>
-      <img src="../images/Ingrediente.jpeg" alt="Ingrediente">
+     
 		<a th:href="@{/ingredienteForm}">Inserisci Ingrediente</a>
 	
-		<a th:href="@{/ingrediente}">Visualizza Ingredienti</a>
+		
 	</div>
   </div>
-
+</div>
 
 
 

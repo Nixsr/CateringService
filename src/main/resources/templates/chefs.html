@@ -7,8 +7,29 @@
 </head>
 <body>
 	<div class="Data-Form">
-		<h4>Elenco degli Chef:</h4>
+		<h2>Elenco degli Chef:</h2>
+		
+		<!-- DEFAULT -->
+			<div sec:authorize="hasAuthority('DEFAULT')">
 		<ul>
+			<li th:each="chef: ${chefs}">
+			<div class="flex-container">
+			<span th:text="'Nome: ' + ${chef.nome} + ' ' + ${chef.cognome}" >Bruno Barbieri</span>
+			
+			<p><span th:text="'Nazionalità: ' + ${chef.nazionalita}">Italia</span></p>
+			</div>
+				<a href="chef.html" th:href="@{'/chef' + '/' + ${chef.id}}">Dettagli</a>
+			</ul>
+			
+	<footer>
+	<a href="/">Home</a>
+	</footer>
+	</div>
+	
+	
+	<!-- ADMIN -->
+			<div sec:authorize="hasAuthority('ADMIN')">
+	<ul>
 			<li th:each="chef: ${chefs}">
 			<div class="flex-container">
 			<span th:text="'Nome: ' + ${chef.nome} + ' ' + ${chef.cognome}" >Bruno Barbieri</span>
@@ -24,6 +45,7 @@
 	<a href="/">Home</a>
 	</footer>
 	</div>
-	
+	</div>
+	</div>
 </body>
 </html>

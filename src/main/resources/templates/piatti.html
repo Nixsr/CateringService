@@ -8,6 +8,8 @@
 <body>
 	<div class="Data-Form">
 		<h2>Elenco dei Piatti:</h2>
+		<!-- DEFAULT -->
+			<div sec:authorize="hasAuthority('DEFAULT')">
 		<ul>
 			<li th:each="piatto : ${piatti}">
 			<div class="flex-container">
@@ -16,12 +18,31 @@
 			<strong>Descrizione:</strong><span th:text="${piatto.descrizione}" >Pennette al sugo con peperoncino e prezzemolo</span>
 			</div>
 				<a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}">Dettagli</a>
-				<a href="toDeletePiatto.html" th:href="@{'/toDeletePiatto' + '/' + ${piatto.id}}">Cancella</a></li>
+				
 			</ul>
 	<footer>
 	<a href="/">Home</a>
-	</footer>		
+	</footer>	
+			</div>
+	
+	<!-- ADMIN -->
+			<div sec:authorize="hasAuthority('ADMIN')">
+		<ul>
+			<li th:each="piatto : ${piatti}">
+			<div class="flex-container">
+			<strong>Nome:</strong><span th:text="${piatto.nome}" >Pasta all'arrabbiata</span>
+			<p>
+			<strong>Descrizione:</strong><span th:text="${piatto.descrizione}" >Pennette al sugo con peperoncino e prezzemolo</span>
+			</div>
+				<a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}">Dettagli</a>
+			<a href="toDeletePiatto.html" th:href="@{'/toDeletePiatto' + '/' + ${piatto.id}}">Cancella</a></li>
+			</ul>
+	<footer>
+	<a href="/">Home</a>
+	</footer>	
 	</div>
+	</div>
+	
 	
 </body>
 </html>

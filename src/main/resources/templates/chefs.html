@@ -12,6 +12,7 @@
 			<li th:each="chef: ${chefs}">
 			<span th:text="${chef.nome} + ' ' + ${chef.cognome} + ' -> ' + ${chef.nazionalita}" >Bruno Barbieri - Italiana</span>
 				<a href="chef.html" th:href="@{'/chef' + '/' + ${chef.id}}">Dettagli</a>
+				<a href="editChef.html" th:href="@{'/editChef' + '/' + ${chef.id}}">Modifica</a>
 				<a href="toDeleteChef.html" th:href="@{'/toDeleteChef' + '/' + ${chef.id}}">Cancella</a></li>
 			</ul>
 			

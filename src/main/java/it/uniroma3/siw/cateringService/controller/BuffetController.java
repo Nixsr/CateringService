@@ -81,7 +81,37 @@ public class BuffetController {
 	public String getBuffet(Model model) {
 		model.addAttribute("buffet", new Buffet());
 		model.addAttribute("listaChef", chefService.findAll());
+		
+		model.addAttribute("piatti", piattoService.findAll());
 		return "admin/buffetForm.html";
+	}
+	
+	@GetMapping("/editBuffet/{id}")
+	public String editBuffet(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("buffet", buffetService.findById(id));
+		model.addAttribute("chefs", chefService.findAll());
+		model.addAttribute("dishes", this.piattoService.findAll());
+		return "editBuffet";
+	}
+
+	@PostMapping("/editBuffet/{id}")
+	public String saveEditedBuffet(@PathVariable("id") Long id, 
+									@RequestParam("piatti") List<Piatto> piatti,
+									@ModelAttribute("buffet") Buffet buffet , Model model) {
+		Buffet originalBuffet = buffetService.findById(id);
+
+		originalBuffet.setId(buffet.getId());
+		originalBuffet.setNome(buffet.getNome());
+		originalBuffet.setDescrizione(buffet.getDescrizione());
+		originalBuffet.getChef().getBuffet().remove(originalBuffet);
+		originalBuffet.setChef(buffet.getChef());
+		originalBuffet.setPiatti(piatti);
+
+		buffetService.save(originalBuffet);
+
+		model.addAttribute("buffets", buffetService.findAll());
+
+		return "buffetList";
 	}
 	
 }

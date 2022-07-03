@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+	<link rel="stylesheet" href="/css/form.css"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	
+	<div class="Data-Form">
+		<div class="box">
+			<form th:action="@{'/' + 'editBuffet' + '/' + ${buffet.id}}" method="post" th:object="${buffet}">
+			<table>
+				<tr>
+						<td> Nome:</td>
+						<td><label><input name="name" type="text"
+						th:field="*{nome}" required></label></td>
+					</tr>
+					
+					<tr>
+					<td> Descrizione:</td>
+						<td><label><input name="description" type="text"
+						th:field="*{descrizione}"></label></td>
+					</tr>
+					<tr>
+						<td> <label th:for="selettore">Seleziona uno chef </label></td>
+						<td> <select id="selettore"  th:field="*{chef}">
+						<option th:each="chef : ${chefs}" th:value="${chef.id}" th:text="${chef.nome} + ' ' + ${chef.cognome}"></option>
+					</select></td>
+					</tr>
+					
+					<tr>
+						<td> Piatti da selezionare</td>
+						<td th:each="piatto : ${dishes}"><input type="checkbox"  th:value="${piatto.id}" th:text="${piatto.nome}" name="piatti"></td>
+					</tr>
+					<!-- COSE NUOOVE -->
+			</table>
+				<div class="button-div">
+					<span><button type="submit">Conferma</button></span>
+				</div>
+			</form>
+		
+		</div>
+		
+	</div>
+
+</body>
+
+</html>

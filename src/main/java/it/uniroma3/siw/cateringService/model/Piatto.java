@@ -3,6 +3,7 @@ package it.uniroma3.siw.cateringService.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +24,7 @@ public class Piatto {
 	@NotBlank
 	private String descrizione;
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name = "piatto")
 	private List<Ingrediente> ingrdienti;
 

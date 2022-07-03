@@ -12,7 +12,7 @@
     <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Errore Globale</p> 
   </div>	
   
-	  <div>
+	<!--  <div>
   	<label for="piatto">Seleziona un piatto</label>
   	<select class="form-select" th:field="*{piatto}">
   	<option value="true" disabled>Seleziona...</option>
@@ -20,6 +20,8 @@
   	</select>
   	<span th:if="${#fields.hasErrors('piatto.id')}" th:errors="*{piatto.id}"></span>
   </div>
+  -->
+  
   
   <div>nome:<input type="text" th:field="*{nome}"/>
 	<div th:if = "${#fields.hasErrors('nome')}" th:errors = "*{nome}"></div>

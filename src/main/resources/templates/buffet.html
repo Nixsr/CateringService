@@ -12,6 +12,13 @@
 	<span th:text="${buffet.chef.cognome}">Barbieri</span>
 	<span th:text="${buffet.nome}">Buffet di dolci</span>
 	<span th:text="${buffet.descrizione}">Torte fredde, dolci al cucchiaio, frutta</span>
+	<tbody>
+		
+        <tr th:each="piatto : ${piatti}">
+            <td><span th:text="${piatto.nome}"> Nome</span></td>
+            <td><span th:text="${piatto.descrizione}"> Descrizione</span></td>
+        </tr>
+    </tbody>
 	<footer><a href="/">Home</a></footer>
 	</div>
 

@@ -11,7 +11,15 @@
 <form th:action = "@{/piatto}" method="post" th:object="${piatto}">
 	<div th:if="${#fields.hasGlobalErrors()}">
     <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Errore Globale</p> 
-  </div>	
+  </div>
+  	
+  	<p>
+  		<label for="ingrediente">Seleziona gli ingredienti per questo piatto</label>
+  	<li th:each="ingrediente : ${ingredienti}">
+					<input type="checkbox" th:value="${ingrediente.id}">
+					<label th:text="${ingrediente.nome}">ingrediente</label>
+				</li>
+  
 	<div>nome:<input type="text" th:field="*{nome}"/>
 	<div th:if = "${#fields.hasErrors('nome')}" th:errors = "*{nome}"></div>
 	</div>

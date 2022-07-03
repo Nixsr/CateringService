@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><link rel="stylesheet" href="/css/form.css"/></head>
+<body>
+<div class="Data-Form">
+		<div class="mb-4 p-3">
+			<h1 th:text="Registrazione">Registrazione Admin</h1>
+		</div>
+		<form th:action="@{/adminRegister}" method="POST">
+			<div class="input-group mb-4">
+				<span  class="input-group-text">Nome e Cognome</span>
+				<input th:field="${user.nome}" type="text" aria-label="First name"
+					th:placeholder="Nome" class="form-control" autofocus />
+				<input th:field="${user.cognome}" type="text" aria-label="Last name"
+					th:placeholder="Cognome" class="form-control" />
+			</div>
+
+			<!-- Email input -->
+			<div class="form-floating mb-4">
+				<input th:field="${credentials.username}" type="email" id="signupEmail" class="form-control"
+					th:placeholder="Email" required />
+				<label th:text="Email" for="signupEmail">Indirizzo Email</label>
+			</div>
+
+			<!-- Password input -->
+			<div class="form-floating mb-4">
+				<input th:field="${credentials.password}" type="password" id="signupPassword" class="form-control"
+					th:placeholder="Password" required />
+				<label th:text="Password" for="signupPassword">Password</label>
+			</div>
+			
+			<!-- Submit button -->
+			<button th:text="Registrati" type="submit" class="btn btn-dark btn-block mb-4">Registrati</button>
+		</form>
+	</div>
+
+</body>
+
+</html>

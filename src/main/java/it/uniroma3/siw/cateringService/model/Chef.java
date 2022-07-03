@@ -2,6 +2,7 @@ package it.uniroma3.siw.cateringService.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,7 +26,7 @@ public class Chef {
 	@NotBlank
 	private String nazionalita;
 	
-	@OneToMany(mappedBy = "chef")
+	@OneToMany(mappedBy = "chef", cascade = CascadeType.REMOVE)
 	private List<Buffet> buffet;
 
 	public Long getId() {

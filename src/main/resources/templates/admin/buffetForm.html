@@ -17,10 +17,17 @@
   
   	<label for="chef">Seleziona uno chef</label>
   	<select class="form-select" th:field="*{chef}">
-  	<option value="true" disabled>Seleziona...</option>
+  	<!--<option value="true" disabled>Seleziona...</option>-->	
   	<option th:each="chef : ${listaChef}" th:value="${chef.id}" th:text="${chef.cognome}"></option>
   	</select>
   	<span th:if="${#fields.hasErrors('chef.id')}" th:errors="*{chef.id}"></span>
+  	
+  <p>
+  		<label for="chef">Seleziona i piatti per questo buffet</label>
+  	<li th:each="ing : ${piatti}">
+					<input type="checkbox" th:field="*{piatti}" th:value="${ing.id}">
+					<label th:text="${ing.nome}">piatto</label>
+				</li>
   
 	<div>nome:<input type="text" th:field="*{nome}"/>
 	<div th:if = "${#fields.hasErrors('nome')}" th:errors = "*{nome}"></div>

@@ -23,12 +23,12 @@ public class ChefController {
 
 	@Autowired
 	private ChefService chefService;
-	
+
 	@Autowired
 	private ChefValidator validator;
-	
+
 	// Metodo POST per inserire un nuovo chef
-	
+
 	@PostMapping("/chef")
 	public String addChef(@Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResult, Model model) {
 		validator.validate(chef, bindingResult);
@@ -39,48 +39,75 @@ public class ChefController {
 		}
 		return "admin/chefForm.html";
 	}
-	
+
 	//Metodo GET per richiedere tutti gli chefs
-	
+
 	@GetMapping("/chef")
 	public String getChefs(Model model) {
 		List<Chef> chef = chefService.findAll();
 		model.addAttribute("chefs", chef);
 		return "chefs.html";
 	}
-	
+
 	//Metodi GET per eliminare uno chef passando come riferimento l'id dello stesso
-	
+
 	//Mostra la conferma dell'eliminazione
-	
+
 	@GetMapping("/toDeleteChef/{id}")
 	public String toDeleteChef(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("chef", chefService.findById((id)));
 		return "toDeleteChef.html";
 	}
-	
+
 	//DELETE dello chef
-	
+
 	@GetMapping("/deleteChef/{id}")
 	public String deleteChef(@PathVariable("id") Long id, Model model) {
 		chefService.deleteById(id);
 		model.addAttribute("chefs", chefService.findAll());
 		return "chefs.html";
 	}
-	
+
 	//Metodo GET per avere un singolo chef
-	
+
 	@GetMapping("/chef/{id}")
 	public String getChef(@PathVariable("id") Long id, Model model) {
 		Chef chef = chefService.findById(id);
 		model.addAttribute("chef", chef);
 		return "chef.html";
-}
-	
+	}
+
 	@GetMapping("/chefForm")
 	public String getChef(Model model) {
 		model.addAttribute("chef", new Chef());
 		return "admin/chefForm.html";
 	}
-	
+
+	@GetMapping("/editChef/{id}")
+	public String editChef(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("chef", chefService.findById(id));
+		return "editChef";
+	}
+
+	@PostMapping("/editChef/{id}")
+	public String editingChef(@PathVariable("id") Long id,
+			@ModelAttribute("chef") Chef chef, 
+			BindingResult chefBindingResult,
+			Model model) {
+		Chef originalChef = chefService.findById(id);
+		originalChef.setNome(chef.getNome());
+		originalChef.setCognome(chef.getCognome());
+		originalChef.setNazionalita(chef.getNazionalita());
+
+		this.validator.validate(originalChef, chefBindingResult);
+		if(!chefBindingResult.hasErrors()) {
+			List<Chef> chefs = chefService.findAll();
+			model.addAttribute("chefs",chefs);
+			chefService.save(originalChef);
+			return "chefs";
+		}
+		model.addAttribute("chef",chefService.findById(id));
+		return "editChef";
+	}
+
 }

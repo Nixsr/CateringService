@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/form.css"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edit chef</title>
+</head>
+
+<body>
+	<div class="Data-Form">
+		<form th:action="@{'/' +'editChef' + '/' + ${chef.id}}" method="post">
+			<div class="box">
+				<h1 id="l-title">Registrati</h1>
+				<div class="form-line">
+					<span >Nome:</span> <span><input th:value="${chef.nome}"
+						name="name" type="text"
+						th:field="${chef.nome}" required /></span>
+				</div>
+				<div class="form-line">
+					<span >Cognome:</span> <span><input th:value="${chef.cognome}"
+						name="surname" type="text"
+						th:field="${chef.cognome}" /> </span>
+				</div>
+				<div class="form-line">
+					<span >Nazionalità:</span> <span><input th:value="${chef.nazionalita}"
+						name="nationality" type="text"
+						th:field="${chef.nazionalita}" /> </span>
+				</div>
+
+				<div class="button">
+					<span><button type="submit">Conferma</button></span>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</body>
+
+</html>

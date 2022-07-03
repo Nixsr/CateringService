@@ -7,10 +7,10 @@
 </head>
 <body>
 	<div class="Data-Form">
-		<h2>>Elenco dei Piatti:</h2>
+		<h2>Elenco dei Piatti:</h2>
 		<ul>
 			<li th:each="piatto : ${piatti}">
-			<span th:text="${piatto.nome} + ' - ' + ${piatto.descrizione}" >Pasta all'arrabbiata - Pennette al sugo con peperoncino e prezzemolo'</span>
+			<span th:text="${piatto.nome} + ' - ' + ${piatto.descrizione}" >Pasta all'arrabbiata - Pennette al sugo con peperoncino e prezzemolo</span>
 				<a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}">Dettagli</a>
 				<a href="toDeletePiatto.html" th:href="@{'/toDeletePiatto' + '/' + ${piatto.id}}">Cancella</a></li>
 			</ul>

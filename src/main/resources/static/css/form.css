@@ -1,6 +1,6 @@
 body {
   background-image: url("https://www.consultaeventidmc.it/wp-content/uploads/2020/06/servizio-catering-per-eventi-2-1920x900.jpg");
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: 1920px 1080px;
 }
 
@@ -17,6 +17,16 @@ body {
 }
 
 table.registrazione {
-	 margin-left:auto; 
+	margin-left:auto; 
     margin-right:auto;
+}
+
+.flex-container {
+	
+	justify-content: center;
+	background-color: lightgrey;
+    width: 300px;
+    border: 15px solid rgb(0, 0, 0);
+    padding: 50px;
+    margin: 20px;
 }

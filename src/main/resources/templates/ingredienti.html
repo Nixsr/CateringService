@@ -10,7 +10,15 @@
 		<h2>Elenco ingredienti:</h2>
 		<ul>
 			<li th:each="ingrediente : ${ingredienti}">
-			<span th:text="${ingrediente.nome} + ' - ' + ${ingrediente.origine} + ' - ' + ${ingrediente.descrizione}" >Salsa di Pomodoro - Italia - Salsa di pomodoro per condire i primi</span>
+			<div class="flex-container">
+			<strong>Nome: </strong><span th:text="${ingrediente.nome}" >Salsa di Pomodoro</span>
+			<p>
+			<strong>Origine: </strong><span th:text="${ingrediente.origine}">Italia</span>
+			<p>
+			<strong>Descrizione: </strong><span th:text="${ingrediente.descrizione}">Salsa di pomodoro per condire i primi</span>
+			 
+			
+			</div>
 				<a href="ingrediente.html" th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}">Dettagli</a>
 				<a href="toDeleteIngrediente.html" th:href="@{'/toDeleteIngrediente' + '/' + ${ingrediente.id}}">Cancella</a></li>
 			</ul>

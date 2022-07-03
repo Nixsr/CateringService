@@ -8,8 +8,24 @@
 <body>
 	<div class="Data-Form">
 	<h2>Dettagli del piatto</h2>
-	<span th:text="${piatto.nome}">Pasta all'arrabbiata</span>
-	<span th:text="${piatto.descrizione}">Pennette con salsa di pomodoro, peperoncino e prezzemolo</span>
+	<strong>Nome: </strong><span th:text="${piatto.nome}">Pasta all'arrabbiata</span>
+	<p>
+	<strong>Descrizione: </strong><span th:text="${piatto.descrizione}">Pennette con salsa di pomodoro, peperoncino e prezzemolo</span>
+	
+	
+	
+	<strong><p>Ingredienti:</p></strong>
+	
+	<tbody>
+		
+        <tr th:each="ingrediente : ${ingredienti}">
+            <td><span th:text="${ingrediente.size()}"> Quantità</span></td>
+            <td><span th:text="${ingrediente.nome}"> Nome</span></td>
+            <td><span th:text="${ingrediente.origine}"> Origine</span></td>
+        <td><span th:text="${ingrediente.descrizione}"> Descrizione</span></td>
+        </tr>
+    </tbody>
+	
 <footer><a href="/">Home</a></footer>
 	</div>
 </body>

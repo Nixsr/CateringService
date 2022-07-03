@@ -10,7 +10,11 @@
 		<h4>Elenco degli Chef:</h4>
 		<ul>
 			<li th:each="chef: ${chefs}">
-			<span th:text="${chef.nome} + ' ' + ${chef.cognome} + ' -> ' + ${chef.nazionalita}" >Bruno Barbieri - Italiana</span>
+			<div class="flex-container">
+			<span th:text="'Nome: ' + ${chef.nome} + ' ' + ${chef.cognome}" >Bruno Barbieri</span>
+			
+			<p><span th:text="'Nazionalità: ' + ${chef.nazionalita}">Italia</span></p>
+			</div>
 				<a href="chef.html" th:href="@{'/chef' + '/' + ${chef.id}}">Dettagli</a>
 				<a href="editChef.html" th:href="@{'/editChef' + '/' + ${chef.id}}">Modifica</a>
 				<a href="toDeleteChef.html" th:href="@{'/toDeleteChef' + '/' + ${chef.id}}">Cancella</a></li>

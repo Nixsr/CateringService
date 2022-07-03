@@ -10,20 +10,21 @@
 	
 		<h2>Elenco buffet:</h2>
 		
-		<ul>
+	
+			
+			<!--New stuff -->
+		
+			<ul>
 			<li th:each="buffet : ${buffetList}">
-			<span th:text="${buffet.chef.cognome} + ' - ' + ${buffet.nome}" >Barbieri - Buffet di dolci</span>
+			<div class="flex-container"><span th:text="${buffet.chef.nome} + ' ' + ${buffet.chef.cognome} + ' - ' + ${buffet.nome}" >Barbieri - Buffet di dolci</span></div>
 				
-				<tbody>
-        <tr th:each="piatto : ${buffet.piatti}">
-            <td><span th:text="${piatto.nome} + ' - '"> Nome del piatto</span></td>
-            <td><span th:text="${piatto.descrizione}"> Descrizione del piatto </span></td>
-        </tr>
-    </tbody>
 				<a href="buffet.html" th:href="@{'/buffet' + '/' + ${buffet.id}}">Dettagli</a>
 				<a href="editBuffet.html" th:href="@{'/editBuffet' + '/' + ${buffet.id}}">Modifica</a>
 				<a href="toDeleteBuffet.html" th:href="@{'/toDeleteBuffet' + '/' + ${buffet.id}}">Cancella</a></li>
 			</ul>
+		
+			<!-- End new stuff-->
+			
 			<footer>
 	<a href="/">Home</a>
 	</footer>

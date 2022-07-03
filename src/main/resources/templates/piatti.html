@@ -10,7 +10,11 @@
 		<h2>Elenco dei Piatti:</h2>
 		<ul>
 			<li th:each="piatto : ${piatti}">
-			<span th:text="${piatto.nome} + ' - ' + ${piatto.descrizione}" >Pasta all'arrabbiata - Pennette al sugo con peperoncino e prezzemolo</span>
+			<div class="flex-container">
+			<strong>Nome:</strong><span th:text="${piatto.nome}" >Pasta all'arrabbiata</span>
+			<p>
+			<strong>Descrizione:</strong><span th:text="${piatto.descrizione}" >Pennette al sugo con peperoncino e prezzemolo</span>
+			</div>
 				<a href="piatto.html" th:href="@{'/piatto' + '/' + ${piatto.id}}">Dettagli</a>
 				<a href="toDeletePiatto.html" th:href="@{'/toDeletePiatto' + '/' + ${piatto.id}}">Cancella</a></li>
 			</ul>

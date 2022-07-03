@@ -8,9 +8,11 @@
 <body>
 	<div class="Data-Form">
 	<h2>Dettagli chef</h2>
-	<span th:text="${chef.nome}">Bruno</span>
-	<span th:text="${chef.cognome}">Barbieri</span>
-	<span th:text="${chef.nazionalita}">Italiana</span>
+	<strong>Nome: </strong><span th:text="${chef.nome}">Bruno</span>
+	<p>
+	<strong>Cognome: </strong><span th:text="${chef.cognome}">Barbieri</span>
+	<p>
+	<strong>Nazionalità: </strong><span th:text="${chef.nazionalita}">Italiana</span>
 <footer><a href="/">Home</a></footer>
 	</div>
 

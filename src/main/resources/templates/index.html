@@ -6,15 +6,16 @@
   <link rel="stylesheet" href="/css/main.css"/>
 </head>
 <body>
-  
-  <h4>Operazioni</h4>
+
+<ul>
+  <li><a class="active" th:href="@{/login}">Accedi</a></li>
+  <li><a th:href="@{/register}">Registrati</a</li>
+  <li><a th:href="@{/logout}">Logout</a></li>
+</ul>
+
     <div class="flex-container">
-      
-      <div>
-	<a th:href="@{/login}">Accedi</a>
-	<a th:href="@{/register}">Registrati</a>
-	<a href="/logout">Logout</a>
-   	</div>
+    <div>
+    </div>
 	<div>
       <img src="../images/buffet.jpg" alt="Buffet">
 		<a th:href="@{/buffetForm}">Inserisci Buffet</a>

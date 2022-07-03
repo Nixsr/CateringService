@@ -13,6 +13,31 @@
   <li><a th:href="@{/logout}">Logout</a></li>
 </ul>
 
+<!-- DEFAULT -->
+	<!--<div th:unless="${role} and ${role.equals('DEFAULT')}" sec:authorize="hasAuthority('DEFAULT')">-->
+    <div class="flex-container">
+    <div>
+    </div>
+	<div>
+      <img src="../images/buffet.jpg" alt="Buffet">
+		<a th:href="@{/buffet}">Visualizza Buffet</a>
+	</div>
+	<div>
+      <img src="../images/Chef.jpeg" alt="Chef">
+		<a th:href="@{/chef}">Visualizza Chefs</a>
+	</div>
+	<div>
+       <img src="../images/Piatto.jpg" alt="Piatto">
+		<a th:href="@{/piatto}">Visualizza Piatti</a>
+	</div>
+	<div>
+      <img src="../images/Ingrediente.jpeg" alt="Ingrediente">
+		<a th:href="@{/ingrediente}">Visualizza Ingredienti</a>
+	</div>
+  </div>
+
+<!-- ADMIN -->
+<div sec:authorize="hasAuthority('ADMIN')">
     <div class="flex-container">
     <div>
     </div>
@@ -38,5 +63,11 @@
 	
 		<a th:href="@{/ingrediente}">Visualizza Ingredienti</a>
 	</div>
+  </div>
+
+
+
+
+
 </body>
 </html>

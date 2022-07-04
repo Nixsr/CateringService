@@ -56,6 +56,13 @@ public class PiattoController {
 		return "piatti.html";
 	}
 	
+	@GetMapping("/piattoAdmin")
+	public String getPiattiAdmin(Model model) {
+		List<Piatto> piatti = piattoService.findAll();
+		model.addAttribute("piatti", piatti);
+		return "piattiAdmin.html";
+	}
+	
 	//Metodi GET per eliminare un piatto passando come riferimento l'id dello stesso
 	
 	//Mostra la conferma dell'eliminazione

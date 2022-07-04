@@ -52,6 +52,13 @@ public class IngredienteController {
 		return "ingredienti.html";
 	}
 	
+	@GetMapping("/ingredienteAdmin")
+	public String getIngredientiAdmin(Model model) {
+		List<Ingrediente> ingredienti = ingredienteService.findAll();
+		model.addAttribute("ingredienti", ingredienti);
+		return "ingredientiAdmin.html";
+	}
+	
 	//Metodi GET per eliminare un ingrediente passando come riferimento l'id dello stesso
 	
 	//Mostra la conferma dell'eliminazione

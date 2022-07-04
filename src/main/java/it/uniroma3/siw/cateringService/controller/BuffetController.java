@@ -57,6 +57,14 @@ public class BuffetController {
 		return "buffetList.html";
 	}
 	
+	@GetMapping("/buffetAdmin")
+	public String getBuffetAdminList(Model model) {
+		List<Buffet> buffet = buffetService.findAll();
+		model.addAttribute("buffetList", buffet);
+		return "buffetListAdmin.html";
+	}
+	
+	
 	@GetMapping("/toDeleteBuffet/{id}")
 	public String toDeleteBuffet(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("buffet", buffetService.findById((id)));

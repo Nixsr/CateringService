@@ -8,7 +8,7 @@
 <body>
 	<div class="Data-Form">
 		<h2>Elenco ingredienti:</h2>
-	
+
 		
 			<span class="Box" th:each="ingrediente : ${ingredienti}">
 			<div class="flex-container">
@@ -17,14 +17,15 @@
 			<strong>Origine: </strong><span th:text="${ingrediente.origine}">Italia</span>
 			<p>
 			<strong>Descrizione: </strong><span th:text="${ingrediente.descrizione}">Salsa di pomodoro per condire i primi</span>
-
-			</div>
+			 
 			
+			</div>
 			<div class="Functions">
 				<a href="ingrediente.html" th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}">Dettagli</a>
-				</div>
+				<a href="toDeleteIngrediente.html" th:href="@{'/toDeleteIngrediente' + '/' + ${ingrediente.id}}">Cancella</a>
+		</div>		
 			</span>
-
+	
 		<footer>
 	<a href="/">Home</a>
 	</footer>

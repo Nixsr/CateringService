@@ -48,6 +48,13 @@ public class ChefController {
 		model.addAttribute("chefs", chef);
 		return "chefs.html";
 	}
+	
+	@GetMapping("/chefAdmin")
+	public String getChefsAdmin(Model model) {
+		List<Chef> chef = chefService.findAll();
+		model.addAttribute("chefs", chef);
+		return "chefsAdmin.html";
+	}
 
 	//Metodi GET per eliminare uno chef passando come riferimento l'id dello stesso
 

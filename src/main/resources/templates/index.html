@@ -37,55 +37,36 @@
 	<div>
       <img src="../images/buffet.jpg" alt="Buffet">
 		<a th:href="@{/buffet}">Visualizza Buffet</a>
+		<div sec:authorize="hasAuthority('ADMIN')">
+			<a th:href="@{/buffetForm}">Inserisci Buffet</a>
+		<a th:href="@{/buffetAdmin}">Gestisci i Buffet</a>
+		</div>
 	</div>
 	<div>
       <img src="../images/Chef.jpeg" alt="Chef">
 		<a th:href="@{/chef}">Visualizza Chefs</a>
+		<div sec:authorize="hasAuthority('ADMIN')">
+				<a th:href="@{/chefForm}">Inserisci Chef</a>
+		<a th:href="@{/chefAdmin}">Gestisci gli Chef</a>
+		</div>
 	</div>
 	<div>
        <img src="../images/Piatto.jpg" alt="Piatto">
 		<a th:href="@{/piatto}">Visualizza Piatti</a>
+		<div sec:authorize="hasAuthority('ADMIN')">
+			<a th:href="@{/piattoForm}">Inserisci Piatto</a>
+	<a th:href="@{/piattoAdmin}">Gestisci i Piatti</a>
+		</div>
 	</div>
 	<div>
       <img src="../images/Ingrediente.jpeg" alt="Ingrediente">
 		<a th:href="@{/ingrediente}">Visualizza Ingredienti</a>
-	</div>
-  </div>
-
-<!-- ADMIN -->
-<div sec:authorize="hasAuthority('ADMIN')">
-<div class="AdminOperation">
-	<span class="AdminOperationTitle"><h1>Operazioni di amministrazione</h1></span>
-    <div class="flex-container">
-    <div>
-    </div>
-	<div>
-      
-		<a th:href="@{/buffetForm}">Inserisci Buffet</a>
-		<a th:href="@{/buffetAdmin}">Gestisci i Buffet</a>
-	</div>
-	<div>
-      
-		<a th:href="@{/chefForm}">Inserisci Chef</a>
-		<a th:href="@{/chefAdmin}">Gestisci gli Chef</a>
-	</div>
-	<div>
-       
-		<a th:href="@{/piattoForm}">Inserisci Piatto</a>
-	<a th:href="@{/piattoAdmin}">Gestisci i Piatti</a>
-		
-	</div>
-	<div>
-     
+		<div sec:authorize="hasAuthority('ADMIN')">
 		<a th:href="@{/ingredienteForm}">Inserisci Ingrediente</a>
 	<a th:href="@{/ingredienteAdmin}">Gestisci gli Ingredienti</a>
-		
+		</div>
 	</div>
   </div>
-</div>
-
-
-
 
 </body>
 </html>

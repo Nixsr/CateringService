@@ -47,12 +47,26 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter{
 
                 // login paragraph: qui definiamo come è gestita l'autenticazione
                 // usiamo il protocollo formlogin 
+                //.and().formLogin()
+                .and().oauth2Login()
+                // la pagina di login si trova a /login
+                // NOTA: Spring gestisce il post di login automaticamente
+                .loginPage("/login")
+                // se il login ha successo, si viene rediretti al path /default
+                .defaultSuccessUrl("/")
+                
+                //Oauth edit
+             // login paragraph: qui definiamo come è gestita l'autenticazione
+                // usiamo il protocollo formlogin 
                 .and().formLogin()
                 // la pagina di login si trova a /login
                 // NOTA: Spring gestisce il post di login automaticamente
                 .loginPage("/login")
                 // se il login ha successo, si viene rediretti al path /default
                 .defaultSuccessUrl("/")
+                //.defaultSuccessUrl("/oauthDefault")
+                
+                //end Oauth
                 
                 // per attivare la funzione "ricordati di me" per una settimana
                 .and()
@@ -64,7 +78,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter{
                 .logoutUrl("/logout")
                 // in caso di successo, si viene reindirizzati alla /index page
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/index")        
+                .logoutSuccessUrl("/")        
                 .invalidateHttpSession(true)
                 .clearAuthentication(true).permitAll();
         		

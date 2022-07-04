@@ -17,6 +17,22 @@
 	<!--<div th:unless="${role} and ${role.equals('DEFAULT')}" sec:authorize="hasAuthority('DEFAULT')">-->
     <div class="flex-container">
     <div>
+<p>Benvenuto<p>
+<!-- Login via Github OAuth2 -->
+	    	<h3 th:if="${#authentication.getPrincipal().getClass() == 
+	    			T(org.springframework.security.oauth2.core.user.DefaultOAuth2User)}"
+	    		th:text="${#authentication.getPrincipal().getAttributes().login}">
+	    	</h3>
+	    	
+<!-- Login via email and password -->
+	    	<h3 th:if="${#authentication.getPrincipal().getClass() == 
+	    			T(org.springframework.security.core.userdetails.User)}"
+				th:text="${#authentication.getPrincipal().getUsername()}">
+	    	</h3>
+<div class="text-center">
+
+		      	</div>
+
     </div>
 	<div>
       <img src="../images/buffet.jpg" alt="Buffet">

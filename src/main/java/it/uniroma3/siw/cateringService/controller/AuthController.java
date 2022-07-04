@@ -1,8 +1,13 @@
 package it.uniroma3.siw.cateringService.controller;
 
+
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -103,4 +108,66 @@ public class AuthController {
 		}
 		return "adminRegisterForm";
 	}
+	
+	@GetMapping("/oauthDefault")
+	public String defaultAfterOAuthLogin(Model model, OAuth2AuthenticationToken authentication) {		
+		// ricava il client corrispondente al token
+		OAuth2User oAuth2User = authentication.getPrincipal();
+		Map<String,Object> attributes = oAuth2User.getAttributes();
+		
+		if(authentication.getAuthorizedClientRegistrationId().equals("google")) {
+			String email = (String) attributes.get("email");
+			Credentials userCredentials = credentialsService.getCredentials(email);
+		    
+			if(userCredentials != null) {
+		    	model.addAttribute("user", userCredentials.getUser());
+		    }
+		    else {
+		    	Credentials oauthCredentials = new Credentials();
+			    User oauthUser = new User();
+			    
+				oauthUser.setNome((String) attributes.get("given_name"));
+				oauthUser.setCognome((String) attributes.get("family_name"));
+
+			    oauthCredentials.setUser(oauthUser);
+			    oauthCredentials.setUsername(email);
+			    credentialsService.saveCredentials(oauthCredentials, false);
+		    }
+		}
+		
+		if(authentication.getAuthorizedClientRegistrationId().equals("github")) {
+			String username= (String) attributes.get("login");
+			Credentials userCredentials = credentialsService.getCredentials(username);
+		    
+			if(userCredentials != null) {
+		    	model.addAttribute("user", userCredentials.getUser());
+		    }
+		    else {
+		    	Credentials oauthCredentials = new Credentials();
+			    User oauthUser = new User();
+
+				
+				String[] nomeCompleto;
+				String nome = ((String) attributes.get("name"));
+
+				if(nome!=null){
+					nomeCompleto = nome.split(" ");
+					oauthUser.setNome(nomeCompleto[0]);
+					if(nomeCompleto.length>1)	
+						oauthUser.setCognome(nomeCompleto[1]);
+				}
+				else
+					oauthUser.setNome(username);
+
+			    oauthCredentials.setUser(oauthUser);
+			    oauthCredentials.setUsername(username);
+			    credentialsService.saveCredentials(oauthCredentials, false);
+		    }
+		}
+		
+		model.addAttribute("role", this.credentialsService.getCredentials().getRole());
+		
+		return "index";
+	}
+	
 }

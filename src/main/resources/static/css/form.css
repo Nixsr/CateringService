@@ -9,6 +9,7 @@ body {
 }
 
 .Data-Form {
+	text-align: center;
   background-color: #f1f1f1;
   margin: auto;
   width: 50%;
@@ -29,4 +30,8 @@ table.registrazione {
     border: 15px solid rgb(0, 0, 0);
     padding: 50px;
     margin: 20px;
+}
+
+.OauthLogin{
+	text-align: center;
 }

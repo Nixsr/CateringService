@@ -21,7 +21,26 @@
 			<div>
 				<span><button type="submit">Login</button></span>
 			</div>
+		</form>
+		<!-- Inizio Oauth-->
+		<div class="OauthLogin">
+				        	<p>Oppure entra con:</p>   
+		        	<form class="d-inline" action="/oauth2/authorization/google" method="get">
+		     			<button type="submit" class="btn btn-link btn-floating mx-1"> 
+		        			
+		        			<p>Google</p>
+		      			</button>
+					</form>
+		
+		     		<form class="d-inline" action="/oauth2/authorization/github" method="get">
+		     			<button type="submit" class="btn btn-link btn-floating mx-1">
+		        			
+		      			<p>Github</p>
+		      			</button>
+		      			
+		     		</form>
+			</div>
 		</div>
-	</form>
+	
 </body>
 </html>

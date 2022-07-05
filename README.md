@@ -1,6 +1,6 @@
 # CateringService
 Progetto del docente del corso di Sistemi Informativi Su Web
 
-### Class Diagram
+# Applicazione deploiata su Heroku
 
-![](classDiagram.jpg)
+https://siw-cateringservice.herokuapp.com/

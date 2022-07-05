@@ -1,6 +1,10 @@
 # CateringService
 Progetto del docente del corso di Sistemi Informativi Su Web
 
+## Class diagram
+
+![alt text](https://github.com/Nixsr/CateringService/blob/master/ClassDiagram.jpg?raw=true)
+
 ### Applicazione deploiata su Heroku
 
 https://siw-cateringservice.herokuapp.com/

@@ -2,6 +2,7 @@
 body {
   background-image: url("https://www.consultaeventidmc.it/wp-content/uploads/2020/06/servizio-catering-per-eventi-2-1920x900.jpg");
   background-repeat: repeat;
+  background-attachment: fixed;
   background-size: 1920px 1080px;
 }
 

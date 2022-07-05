@@ -7,6 +7,7 @@
 </head>
 <body>
 <div class="Data-Form">
+<h2>Inserimento ingrediente</h2>
 <form th:action = "@{/ingrediente}" method="post" th:object="${ingrediente}">
 	<div th:if="${#fields.hasGlobalErrors()}">
     <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Errore Globale</p> 

@@ -15,11 +15,11 @@
 	<span th:text="${buffet.nome}">Buffet di dolci</span>
 	<p><strong>Descrizione:</strong></p>
 	<span th:text="${buffet.descrizione}">Torte fredde, dolci al cucchiaio, frutta</span>
-	<p><strong>Piatti:</strong></p>
+	<p><strong>Piatti: </strong></p>
         <tr th:each="piatto : ${buffet.piatti}">
-        	<ul><td><span th:text="'Nome: ' + ${piatto.nome}"> Nome del piatto</span></td>
+        	<ul><strong>Nome: </strong><td><span th:text="${piatto.nome}"> Nome del piatto</span></td>
             <p>
-            <td><span th:text="'Descrizione: ' + ${piatto.descrizione}"> Descrizione del piatto </span></td>
+            <td><strong>Descrizione: </strong><span th:text="${piatto.descrizione}"> Descrizione del piatto </span></td>
         	</ul>     
         </tr>
 	

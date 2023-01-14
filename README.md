@@ -8,7 +8,8 @@ Progetto del docente del corso di Sistemi Informativi Su Web
 ### Applicazione deploiata su Heroku
 
 https://siw-cateringservice.herokuapp.com/
-
+oppure
+http://37.187.7.129:8080/
 
 ## Casi d'uso
 
